@@ -14,9 +14,21 @@ console.log("Ejercicio 1: if simple");
 console.log(esAdultoMayor(70)); // Debería mostrar: true
 console.log(esAdultoMayor(50)); // Debería mostrar: false
 
+function esAdultoMayor(edad) {
+  return edad >= 18;
+}
+console.log(esAdultoMayor(20));
+
 console.log("\nEjercicio 2: if-else");
+
 // Escribe una función llamada 'verificarTemperatura' que reciba una temperatura (°C) y devuelva 'Hace calor' si es ≥30, 'Hace frío' si es <30.
 // Datos de prueba:
+
+function verificarTemperatura(temperatura) {
+  if (temperatura >= 30) return "Hace calor"
+  else return "Hace frío"
+}
+
 console.log(verificarTemperatura(32)); // Debería mostrar: 'Hace calor'
 console.log(verificarTemperatura(20)); // Debería mostrar: 'Hace frío'
 
@@ -24,6 +36,15 @@ console.log("\nEjercicio 3: if-else if");
 // Escribe una función llamada 'clasificarEdad' que reciba una edad y devuelva:
 // 'Niño' si ≤12, 'Adolescente' si 13-17, 'Adulto' si 18-64, 'Adulto mayor' si ≥65
 // Datos de prueba:
+
+function clasificarEdad(edad) {
+  if (edad <= 12) return "Niño"
+  else if (edad > 12 && edad <= 17) return "Adolescente"
+  else if (edad > 17 && edad <= 64) return "Adulto"
+  else if (edad > 65) return "Adulto mayor"
+  else return "Edad no contemplada"
+}
+
 console.log(clasificarEdad(10)); // Debería mostrar: 'Niño'
 console.log(clasificarEdad(15)); // Debería mostrar: 'Adolescente'
 console.log(clasificarEdad(30)); // Debería mostrar: 'Adulto'
@@ -32,6 +53,17 @@ console.log(clasificarEdad(70)); // Debería mostrar: 'Adulto mayor'
 console.log("\nEjercicio 4: switch");
 // Escribe una función llamada 'obtenerColor' que reciba un número del 1 al 3 y devuelva: 1 → 'Rojo', 2 → 'Verde', 3 → 'Azul', otro → 'Color desconocido'
 // Datos de prueba:
+
+function obtenerColor(numero) {
+  switch (numero) {
+    case 1: return "Rojo"
+    case 2: return "Verde"
+    case 3: return "Azul"
+    default: return "Color desconocido"
+  }
+}
+
+
 console.log(obtenerColor(1)); // Debería mostrar: 'Rojo'
 console.log(obtenerColor(3)); // Debería mostrar: 'Azul'
 console.log(obtenerColor(5)); // Debería mostrar: 'Color desconocido'
@@ -39,12 +71,26 @@ console.log(obtenerColor(5)); // Debería mostrar: 'Color desconocido'
 console.log("\nEjercicio 5: Condicional ternario");
 // Escribe una función llamada 'esPositivo' que reciba un número y devuelva 'Positivo' si ≥0, 'Negativo' si <0
 // Datos de prueba:
+
+
+function esPositivo(num) {
+  return num >= 0 ? 'Positivo' : 'Negativo';
+}
+
 console.log(esPositivo(5));  // Debería mostrar: 'Positivo'
 console.log(esPositivo(-3)); // Debería mostrar: 'Negativo'
 
 console.log("\nEjercicio 6: Combinación de condicionales");
 // Escribe una función llamada 'puedeVotar' que reciba edad y nacionalidad ('sí' o 'no') y devuelva true si edad ≥18 y nacionalidad 'sí', false en caso contrario
 // Datos de prueba:
+
+
+function puedeVotar(edad, nacionalidad) {
+  if (edad >= 18 && nacionalidad === "sí") return true
+  else return false
+}
+
+
 console.log(puedeVotar(20, 'sí'));  // Debería mostrar: true
 console.log(puedeVotar(16, 'sí'));  // Debería mostrar: false
 console.log(puedeVotar(25, 'no'));  // Debería mostrar: false
@@ -56,25 +102,67 @@ console.log(puedeVotar(25, 'no'));  // Debería mostrar: false
 console.log("\nEjercicio 7: Bucle for");
 // Escribe una función llamada 'imprimirPares' que imprima los números pares del 2 al 20.
 // Datos de prueba:
+
+function imprimirPares() {
+    for (let i = 2; i < 20; i += 2) {
+        console.log(i);
+    }
+}
+
 imprimirPares();
+
 // Debería imprimir: 2 4 6 8 10 12 14 16 18 20
 
 console.log("\nEjercicio 8: Bucle for (suma)");
 // Escribe una función llamada 'sumarPares' que sume todos los números pares hasta n
 // Datos de prueba:
+
+function sumarPares(num) {
+  let suma = 0;
+  for (let i = 2; i <= num; i += 2) {
+    suma += i;
+  }
+  return suma;
+}
+
 console.log(sumarPares(10)); // Debería mostrar: 30
 
 console.log("\nEjercicio 9: Bucle while");
 // Escribe una función llamada 'contarImpares' que cuente de 1 hasta n solo los números impares
 // Datos de prueba:
+
+
+function contarImpares(n) {
+  for (i = 1; i<n; i+=2) {
+    console.log(i)
+  }
+}
+
 contarImpares(10);
 // Debería imprimir: 1 3 5 7 9
 
 console.log("\nEjercicio 10: Bucle do-while");
 // Escribe una función llamada 'pedirContraseña' que simule pedir contraseña hasta que sea 'admin' usando un array de intentos
 // Datos de prueba:
+
+
+//REPASAR DO WHILES POR DIOS Y POR LA VIRGEN
+
+function pedirContraseña(intentos) {
+  let i = 0;
+  
+  do {
+    console.log(`Intento ${i + 1}: ${intentos[i]}`);
+    i++;
+  } while (intentos[i - 1] !== 'admin');
+  
+  console.log('¡Contraseña correcta!');
+}
+
 const intentos = ['1234', 'qwerty', 'admin'];
 pedirContraseña(intentos);
+
+
 // Ejemplo de salida:
 // Intento 1: 1234
 // Intento 2: qwerty
@@ -84,12 +172,36 @@ pedirContraseña(intentos);
 console.log("\nEjercicio 11: Bucle for (array)");
 // Escribe una función llamada 'multiplicarArray' que reciba un array de números y devuelva el producto de todos ellos
 // Datos de prueba:
-console.log(multiplicarArray([1, 2, 3, 4])); // Debería mostrar: 24
+
+function multiplicarArray(array) {
+  let resultado = 1;
+  for (let index = 0; index < array.length; index++) {
+    resultado *= array[index];
+  }
+
+  return resultado;
+  
+}
 
 console.log("\nEjercicio 12: Bucle while (factorial)");
 // Escribe una función llamada 'factorial' que reciba un número n y devuelva su factorial usando while
 // Datos de prueba:
+
+
+function factorial(n) {
+  let resultado = 1;
+  let i = 1;
+
+  while (i <= n) {
+    resultado *= i;
+    i++;
+  }
+
+  return resultado;
+}
+
 console.log(factorial(5)); // Debería mostrar: 120
+
 
 // ------------------------------
 // forEach y map
@@ -99,14 +211,18 @@ console.log("\nEjercicio 13: forEach básico");
 // Utiliza forEach para imprimir cada número del array 'numeros' al cuadrado
 // Datos de prueba:
 const numeros = [1, 2, 3, 4, 5];
-numeros.forEach(n => console.log(n*n));
+
+numeros.forEach((element) => { console.log(element**2)
+});
+
 // Debería imprimir: 1 4 9 16 25
 
 console.log("\nEjercicio 14: forEach con índice");
 // Utiliza forEach para imprimir cada nombre del array 'nombres' con su índice
 // Datos de prueba:
 const nombres = ['Ana', 'Juan', 'María'];
-nombres.forEach((nombre,i) => console.log(`Nombre en índice ${i}: ${nombre}`));
+
+nombres.forEach((nombre, i) => console.log(`Nombre en índice ${i} es ${nombre}`));
 // Debería imprimir:
 // Nombre en índice 0: Ana
 // Nombre en índice 1: Juan
