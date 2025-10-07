@@ -243,19 +243,30 @@ empleados.forEach(e => console.log(`${e.nombre} gana ${e.salario} euros`));
 console.log("\nEjercicio 16: map básico");
 // Utiliza map para crear un nuevo array con el cubo de cada número del array 'numeros'
 // Datos de prueba:
+
+const cubos = numeros.map(n => n * n)
 console.log(cubos);
 // Debería mostrar: [1, 8, 27, 64, 125]
 
 console.log("\nEjercicio 17: map con strings");
 // Utiliza map para crear un nuevo array con las palabras en mayúsculas
 // Datos de prueba:
+
+const palabras = ['hola', 'mundo', 'js'];
+
+
+const mayus = palabras.map(palabra => palabra.toUpperCase())
+
 console.log(mayus);
 // Debería mostrar: ['HOLA', 'MUNDO', 'JS']
 
 console.log("\nEjercicio 18: map con objetos");
 // Utiliza map para crear un array con los salarios de los empleados
 // Datos de prueba:
-console.log(edades);
+
+
+const salarios = empleados.map(empleado => empleado.salario)
+console.log(salarios);
 // Debería mostrar: [1200, 1500]
 
 console.log("\nEjercicio 19: Combinación map + forEach");
@@ -266,6 +277,15 @@ console.log("\nEjercicio 19: Combinación map + forEach");
 // Las edades son: [1200,1500]
 // La suma de todas las edades es: 2700
 
+let suma = 0
+const salariosMap = empleados.map(empleado => empleado.salario)
+console.log("Los salarios son " +  salariosMap)
+
+salariosMap.forEach(salario => suma += salario)
+console.log("La suma de todos los salarios es: " + suma)
+
+
+
 // ------------------------------
 // FUNCIONES
 // ------------------------------
@@ -273,12 +293,38 @@ console.log("\nEjercicio 19: Combinación map + forEach");
 console.log("\nEjercicio 20: Tipos de funciones");
 // Crear función declarativa 'restar' y expresión 'modulo'
 // Datos de prueba:
+
+function restar(a,b) {
+    return a-b;
+}
+
+const modulo = function(a,b) {
+  return a%b;
+}
+
 console.log(restar(10,3)); // Debería mostrar: 7
 console.log(modulo(10,3)); // Debería mostrar: 1
 
 console.log("\nEjercicio 21: Métodos");
 // Crear objeto 'banco' con métodos depositar, retirar y consultarSaldo
 // Datos de prueba:
+
+
+const banco = {
+  saldo: 1000,
+  depositar: function(a) {
+    this.saldo += a;
+    return this.saldo;
+  },
+  retirar: function(a) {
+    this.saldo -= a;
+    return this.saldo;
+  },
+  consultarSaldo: function() {
+    return this.saldo;
+  }
+};
+
 console.log(banco.depositar(500)); // Debería mostrar: 1500
 console.log(banco.retirar(200));   // Debería mostrar: 1300
 console.log(banco.consultarSaldo());// Debería mostrar: 1300
@@ -286,23 +332,47 @@ console.log(banco.consultarSaldo());// Debería mostrar: 1300
 console.log("\nEjercicio 22: Parámetros por defecto");
 // Crear función 'multiplicarPor' con factor por defecto = 2
 // Datos de prueba:
+
+function multiplicarPor(a, b=2) {
+  return a*b
+};
+
 console.log(multiplicarPor(5));    // Debería mostrar: 10
 console.log(multiplicarPor(5,3));  // Debería mostrar: 15
 
 console.log("\nEjercicio 23: Funciones que retornan valores");
 // Crear función 'esMultiploDe5'
 // Datos de prueba:
+
+function esMultiploDe5(numero) {
+  return numero % 5 === 0;
+}
+
 console.log(esMultiploDe5(10)); // Debería mostrar: true
 console.log(esMultiploDe5(7));  // Debería mostrar: false
 
 console.log("\nEjercicio 24: Arrow functions");
 // Convertir función tradicional en arrow function 'sumarDos'
 // Datos de prueba:
+
+const sumarDos = numero => numero += 2;
+
+
 console.log(sumarDos(5)); // Debería mostrar: 7
 
 console.log("\nEjercicio 25: Funciones como argumentos");
 // Crear función 'aplicarOperacionAvanzada' que reciba dos números y una función
 // Datos de prueba:
+
+function aplicarOperacionAvanzada(a,b, operacion) {
+  return operacion(a,b)
+}
+
+function multiplicar(a,b) {
+  return a*b
+}
+
+
 console.log(aplicarOperacionAvanzada(3,4,multiplicar)); // Debería mostrar: 12
 
 console.log("\nEjercicio 26: Closure simple");
@@ -315,6 +385,15 @@ console.log(nuevoID()); // Debería mostrar: 3
 console.log("\nEjercicio 27: Closure con configuración");
 // Crear función 'contadorInicial' que empiece desde un número inicial
 // Datos de prueba:
+
+function contadorInicial() {
+  let count = 0;
+  return function(){
+    count++
+    return count
+  }
+}
+
 console.log(contarDesde5()); // Debería mostrar: 6
 console.log(contarDesde5()); // Debería mostrar: 7
 

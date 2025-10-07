@@ -147,13 +147,91 @@ console.log(factorial(5)); // Debería mostrar: 120 */
 
 console.log(factorial(5)) */
 
-/* const numeros = [1, 2, 3, 4, 5];
+const numeros = [1, 2, 3, 4, 5];
 
-numeros.forEach(element => { console.log(element**2)
+/* numeros.forEach(element => { console.log(element**2)
 });
 
  */
 
 
-const nombres = ['Ana', 'Juan', 'María'];
+/* const nombres = ['Ana', 'Juan', 'María'];
 nombres.forEach((nombre, i) => console.log(`Nombre en índice ${i} es ${nombre}`));
+ */
+
+
+/* const empleados = [
+  { nombre: 'Luis', salario: 1200 },
+  { nombre: 'Eva', salario: 1500 },
+];
+
+empleados.forEach(e => console.log(`${e.nombre} gana ${e.salario} euros`));
+
+const nombres = ['Ana', 'Juan', 'María'];
+
+nombres.forEach((nombre, i) => console.log(`Nombre en índice ${i} es ${nombre}`)); */
+
+/* const cubos = numeros.map(n => n * n)
+console.log(cubos); */
+
+/* const empleados = [
+  { nombre: 'Luis', salario: 1200 },
+  { nombre: 'Eva', salario: 1500 },
+];
+
+let suma = 0
+const salariosMap = empleados.map(empleado => empleado.salario)
+console.log("Los salarios son " +  salariosMap)
+
+salariosMap.forEach(salario => suma += salario)
+console.log("La suma de todos los salarios es: " + suma)
+
+/* const salarios = empleados.map(empleado => empleado.salario)
+console.log(salarios); */
+
+/* 
+function restar(a,b) {
+    return a-b;
+}
+
+const modulo = function(a,b) {
+  return a%b;
+}
+
+console.log(restar(10,3)); // Debería mostrar: 7
+console.log(modulo(10,3)); // Debería mostrar: 1
+ */
+
+/* 
+function multiplicarPor(a,b=2) {
+  return a*b
+}
+
+
+console.log(multiplicarPor(5));    // Debería mostrar: 10
+console.log(multiplicarPor(5,3));  // Debería mostrar: 15 */
+
+/* function esMultiploDe5(numero) {
+  return numero % 5 === 0;
+}
+
+console.log(esMultiploDe5(10)); // Debería mostrar: true
+console.log(esMultiploDe5(7));  // Debería mostrar: false */
+
+
+/* const sumarDos = numero => numero += 2;
+
+
+console.log(sumarDos(5)); // Debería mostrar: 7 */
+
+
+function aplicarOperacionAvanzada(a,b, operacion) {
+  return operacion(a,b)
+}
+
+function multiplicar(a,b) {
+  return a*b
+}
+
+
+console.log(aplicarOperacionAvanzada(3,4,multiplicar)); // Debería mostrar: 12
