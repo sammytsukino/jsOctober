@@ -404,6 +404,12 @@ console.log(contarDesde5()); // Debería mostrar: 7
 console.log("\nEjercicio 28: Condicional + bucle");
 // Crear función 'imprimirMultiplos' que reciba n y límite e imprima múltiplos de n
 // Datos de prueba:
+function imprimirMultiplos(n, limite) {
+  for (let i = n; i <= limite; i += n) {
+    console.log(i);
+  }
+}
+
 imprimirMultiplos(3,15);
 // Debería imprimir: 3 6 9 12 15
 
@@ -415,6 +421,19 @@ console.log(filtrarPares([1,2,3,4,5,6])); // Debería mostrar: [2,4,6]
 console.log("\nEjercicio 30: Objeto + map + función");
 // Crear función 'promediarEdades' que devuelva el promedio de edades de un array de personas
 // Datos de prueba:
+const grupo = [
+  { nombre: 'Ana', edad: 25 },
+  { nombre: 'Juan', edad: 30 },
+  { nombre: 'María', edad: 30 }
+];
+
+function promediarEdades(personas) {
+  const edades = personas.map(persona => persona.edad);
+  let suma = 0;
+  edades.forEach(edad => suma += edad);
+  return suma / personas.length;
+}
+
 console.log(promediarEdades(grupo)); // Debería mostrar: 28.333333333333332
 
 
